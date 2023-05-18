@@ -4,9 +4,16 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
   @override
   _LoginPageState createState() => _LoginPageState();
+
+  
 }
 
 class _LoginPageState extends State<LoginPage> {
+  static final List<String> _UserType = [
+    "Student",
+    "Admin",
+    "Entrance Monitor"
+  ];
    @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -27,6 +34,16 @@ class _LoginPageState extends State<LoginPage> {
       decoration: const InputDecoration(
         hintText: 'Password',
       ),
+    );
+
+    final user = DropdownButton(
+      items: _UserType.map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                    value: value, child: Text(value));
+              }).toList(),
+      onChanged: (value) {
+        
+      },
     );
 
     final loginButton = Padding(
@@ -58,6 +75,8 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
+
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -72,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             email,
             password,
+            user,
             loginButton,
             signUpButton,
           ],
