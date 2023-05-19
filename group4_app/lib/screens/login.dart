@@ -14,6 +14,9 @@ class _LoginPageState extends State<LoginPage> {
     "Admin",
     "Entrance Monitor"
   ];
+
+  String? selectedUser;
+
    @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -36,13 +39,16 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    final user = DropdownButton(
+    final user = DropdownButton<String>(
+      value: selectedUser,
       items: _UserType.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                     value: value, child: Text(value));
               }).toList(),
       onChanged: (value) {
-        
+        setState(() {
+          selectedUser = value;
+        });
       },
     );
 
