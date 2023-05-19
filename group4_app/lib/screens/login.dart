@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'signup_initial.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -71,11 +72,11 @@ class _LoginPageState extends State<LoginPage> {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
         onPressed: () async {
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => const SignupPage(),
-          //   ),
-          // );
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const SignupInitial(),
+            ),
+          );
         },
         child: const Text('Sign Up', style: TextStyle(color: Colors.white)),
       ),
@@ -100,6 +101,7 @@ class _LoginPageState extends State<LoginPage> {
             user,
             loginButton,
             signUpButton,
+            
           ],
         ),
       ),
