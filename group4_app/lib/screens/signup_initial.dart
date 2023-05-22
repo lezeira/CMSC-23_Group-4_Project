@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:group4_app/screens/admin_signup.dart';
+import 'package:group4_app/screens/entranceMonitor_signup.dart';
+import 'package:group4_app/screens/student_signup.dart';
 
 
 class SignupInitial extends StatefulWidget {
@@ -19,6 +22,13 @@ class _SignupInitial extends State<SignupInitial> {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
         onPressed: () async {
+          // AuthProvider does not exist yet
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const StudentSignup())
+          );
+
+
           // await context.read<AuthProvider>().signIn(
           //       emailController.text.trim(),
           //       passwordController.text.trim(),
@@ -33,6 +43,12 @@ class _SignupInitial extends State<SignupInitial> {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
         onPressed: () async {
+           // AuthProvider does not exist yet
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AdminSignup())
+          );
+
           // await context.read<AuthProvider>().signIn(
           //       emailController.text.trim(),
           //       passwordController.text.trim(),
@@ -47,6 +63,12 @@ class _SignupInitial extends State<SignupInitial> {
       padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: ElevatedButton(
         onPressed: () async {
+          // AuthProvider does not exist yet
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const EntranceMonitorSignup())
+          );
+
           // await context.read<AuthProvider>().signIn(
           //       emailController.text.trim(),
           //       passwordController.text.trim(),
